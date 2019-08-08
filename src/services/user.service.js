@@ -1,6 +1,6 @@
 'use strict';
 
-import { User } from '../models';
+import { User } from '../models/user.model';
 
 function registerUser(req, res) {
     console.log(req);
@@ -21,4 +21,4 @@ function registerUser(req, res) {
     });
 };
 
-export {registerUser};
+export default { registerUser };

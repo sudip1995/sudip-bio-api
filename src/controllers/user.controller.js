@@ -2,10 +2,9 @@
 
 import express from 'express';
 
-import { User } from '../models';
-import { userService } from '../services';
+import userService from '../services/user.service';
 const router = express.Router();
 
-router.use('/register', userService.registerUser);
+router.get('/register', userService.registerUser);
 
-export { router };
+export { router as userController};

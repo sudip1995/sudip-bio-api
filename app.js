@@ -1,10 +1,14 @@
 'use strict';
 import express from 'express';
-import envs from './config';
+import bodeParser from 'body-parser';
+
+import { envs } from './config';
 import { connectDb } from './src/models';
+import { router } from './src/routes/index';
 
 const app = express();
-app.get('/', (req, res) => res.send('Hello World!'));
+app.use(bodeParser.json());
+app.use('/', router);
 
 connectDb().then(async () => {
     app.listen(process.env.PORT, () =>

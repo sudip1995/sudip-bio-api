@@ -1,5 +1,7 @@
+'use strict';
+
 import express from 'express';
-import userController from '../controllers';
+import { userController } from '../controllers/user.controller';
 
 const userRouter = express.Router();
 
