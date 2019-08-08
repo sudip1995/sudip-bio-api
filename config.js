@@ -5,4 +5,4 @@ if (result.error) {
   throw result.error;
 }
 const { parsed: envs } = result;
-export default envs;
+export { envs };
