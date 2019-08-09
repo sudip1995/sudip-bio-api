@@ -5,7 +5,8 @@
   "main": "app.js",
   "scripts": {
     "start_local": "nodemon --exec babel-node -r dotenv/config app",
-    "start": "nodemon --exec babel-node app"
+    "start": "nodemon --exec babel-node app",
+    "compile": "babel src --out-dir .compiled --source-maps --watch"
   },
   "author": "Sudip Sarker",
   "license": "ISC",
@@ -17,6 +18,7 @@
     "mongoose": "^5.6.7"
   },
   "devDependencies": {
+    "@babel/cli": "^7.5.5",
     "@babel/core": "^7.5.5",
     "@babel/node": "^7.5.5",
     "@babel/preset-env": "^7.5.5",
