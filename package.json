@@ -6,7 +6,8 @@
   "scripts": {
     "start_local": "nodemon --exec babel-node -r dotenv/config app",
     "start": "nodemon --exec babel-node app",
-    "compile": "babel src --out-dir .compiled --source-maps --watch"
+    "compile": "babel src --out-dir .compiled --source-maps --watch",
+    "debug": "nodemon --exec babel-node --inspect app"
   },
   "author": "Sudip Sarker",
   "license": "ISC",
