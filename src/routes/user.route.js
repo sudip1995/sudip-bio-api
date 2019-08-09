@@ -5,6 +5,6 @@ import { userController } from '../controllers/user.controller';
 
 const userRouter = express.Router();
 
-userRouter.use('/register', userController);
+userRouter.use('/', userController);
 
 export { userRouter };
