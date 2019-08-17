@@ -12,10 +12,7 @@ import { options } from './src/passport';
 
 const {
   PORT = 3000,
-  NODE_ENV = 'development',
-  SESSION_NAME = 'sid',
-  SESSION_SECRET = 'Hello, It\'s me',
-  SESSION_LIFETIME = 3600
+  NODE_ENV = 'development'
 } = envs;
 
 const IN_PROD = NODE_ENV === 'production'

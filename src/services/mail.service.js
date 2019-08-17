@@ -2,14 +2,22 @@
 
 import nodemailer from 'nodemailer';
 
+import { envs } from '../../config';
+
+const {
+    EMAIL = 'email@example.com',
+    EMAIL_PASS = 'example',
+    RECEIVER_EMAIL = 'receiver@example.com'
+} = envs;
+
 function sendMail(req,res) {
     const transporter = nodemailer.createTransport({
         host: 'smtp.mailgun.org',
         port: 587,
         secure: false,
         auth: {
-            user: process.env.EMAIL,
-            pass: process.env.EMAIL_PASS
+            user: EMAIL,
+            pass: EMAIL_PASS
         }
     });
 
@@ -20,7 +28,7 @@ function sendMail(req,res) {
     const message = req.body.message;
     let mailOptions = {
         from: email, // sender address
-        to: process.env.RECEIVER_EMAIL, // list of recceivers
+        to: RECEIVER_EMAIL, // list of recceivers
         subject: subject, // Subject line
         text: message, // plain text body
     };
