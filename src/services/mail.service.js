@@ -2,13 +2,10 @@
 
 import nodemailer from 'nodemailer';
 
-import { envs } from '../../config';
+import dotenv from 'dotenv';
 
-const {
-    EMAIL = 'email@example.com',
-    EMAIL_PASS = 'example',
-    RECEIVER_EMAIL = 'receiver@example.com'
-} = envs;
+dotenv.config();
+
 
 function sendMail(req,res) {
     const transporter = nodemailer.createTransport({
@@ -16,8 +13,8 @@ function sendMail(req,res) {
         port: 587,
         secure: false,
         auth: {
-            user: EMAIL,
-            pass: EMAIL_PASS
+            user: process.env.EMAIL,
+            pass: process.env.EMAIL_PASS
         }
     });
 
@@ -28,7 +25,7 @@ function sendMail(req,res) {
     const message = req.body.message;
     let mailOptions = {
         from: email, // sender address
-        to: RECEIVER_EMAIL, // list of recceivers
+        to: process.env.RECEIVER_EMAIL, // list of recceivers
         subject: subject, // Subject line
         text: message, // plain text body
     };

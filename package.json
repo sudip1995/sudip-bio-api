@@ -5,9 +5,10 @@
   "main": "app.js",
   "scripts": {
     "start_local": "nodemon --exec babel-node -r dotenv/config app",
-    "start": "nodemon --exec babel-node app",
-    "compile": "babel src --out-dir .compiled --source-maps --watch",
-    "debug": "nodemon --exec babel-node --inspect app"
+    "start": "npm run build && node ./dist/app.js",
+    "nodemon-start": "nodemon --exec babel-node src/app",
+    "build": "babel src --out-dir dist",
+    "debug": "nodemon --exec babel-node --inspect src/app"
   },
   "author": "Sudip Sarker",
   "license": "ISC",
@@ -22,14 +23,14 @@
     "mongoose": "^5.6.7",
     "nodemailer": "^6.3.0",
     "passport": "^0.4.0",
-    "passport-jwt": "^4.0.0"
-  },
-  "devDependencies": {
+    "passport-jwt": "^4.0.0",
     "@babel/cli": "^7.5.5",
-    "@babel/core": "^7.5.5",
-    "@babel/node": "^7.5.5",
     "@babel/preset-env": "^7.5.5",
     "dotenv": "^8.0.0",
+    "@babel/core": "^7.5.5"
+  },
+  "devDependencies": {
+    "@babel/node": "^7.5.5",
     "nodemon": "^1.19.1"
   }
 }

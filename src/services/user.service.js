@@ -5,12 +5,10 @@ import bcrypt from 'bcrypt';
 
 import { User } from '../models/user.model';
 
-import { envs } from '../../config';
+import dotenv from 'dotenv';
 
-const {
-    WEEK = 604800,
-    SECRET = 'secret'
-} = envs;
+dotenv.config();
+
 
 function getUserById(id, callback) {
     User.findById(id, callback);
@@ -51,8 +49,8 @@ function authenticateUser(req, res) {
         comparePassword(password, user.password, (err, isMatch) => {
             if(err) throw err;
             if(isMatch) {
-                const token = jwt.sign({data: user}, SECRET, {
-                    expiresIn: WEEK
+                const token = jwt.sign({data: user}, process.env.SECRET, {
+                    expiresIn: process.env.WEEK
                 });
                 res.json({
                     success: true,
