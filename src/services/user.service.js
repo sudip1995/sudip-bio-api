@@ -29,11 +29,10 @@ function registerUser(req, res) {
     user.dateOfBirth = req.body.dateOfBirth;
     user.save((err, doc) => {
         if (!err)
-            res.send(doc);
+            return res.json({success: true, doc: doc});
         else {
-            //error handling
+            return res.json({success: false, msg: 'User not Registered'});
         }
- 
     });
 };
 

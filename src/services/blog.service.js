@@ -37,11 +37,10 @@ function saveBlogPost(req, res) {
     // Otherwise, update the existing doc with upsertData
     Blog.findOneAndUpdate({
         _id: req.params.id ? req.params.id : blog.id}, upsertData, {upsert: true, new: true}, function(err, doc) {
-        if (!err)
-            res.send(doc);
+            if (!err)
+            return res.json(doc);
         else {
-            //error handling
-            blog.isPosted = false;
+            return res.json(null);
         }
     });
 };
