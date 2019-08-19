@@ -49,7 +49,7 @@ function authenticateUser(req, res) {
             if(err) throw err;
             if(isMatch) {
                 const token = jwt.sign({data: user}, process.env.SECRET, {
-                    expiresIn: process.env.WEEK
+                    expiresIn: 604800
                 });
                 res.json({
                     success: true,
