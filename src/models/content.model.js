@@ -2,7 +2,15 @@
 
 import mongoose from 'mongoose';
 
-var blogSchema = new mongoose.Schema({
+var contentSchema = new mongoose.Schema({
+    contentType: {
+        type: String,
+        required: true
+    },
+    language: {
+        type: String,
+        enum: ["bengali", "english"]
+    },
     title: {
         type: String,
         required: true,
@@ -10,7 +18,7 @@ var blogSchema = new mongoose.Schema({
     },
     author: {
         type: String,
-        // required: true,
+        required: true,
         maxlength: 50
     },
     body: {
@@ -33,6 +41,6 @@ var blogSchema = new mongoose.Schema({
     }
 });
 
-const Blog = mongoose.model('BlogPost', blogSchema);
+const Content = mongoose.model('Content', contentSchema);
 
-export { Blog };
+export { Content };

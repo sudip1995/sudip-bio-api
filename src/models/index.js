@@ -2,7 +2,7 @@
 
 import mongoose from 'mongoose';
 import { User } from './user.model';
-import { Blog } from './blog.model';
+import { Content } from './content.model';
 
 import dotenv from 'dotenv';
 
@@ -16,6 +16,6 @@ const connectDb = () => {
   return mongoose.connect(process.env.DATABASE_URL);
 };
 
-const models = { User, Blog };
+const models = { User, Content };
 
 export { connectDb, models };
