@@ -22,9 +22,10 @@ function saveContent(req, res) {
 
     var content = new Content();
     content.title = req.body.title;
-    content.author = req.body.author;
+    content.author = req.body.author ? req.body.author : 'Sudip Sarker';
     content.body = req.body.body;
     content.contentType = req.body.contentType;
+    content.publishedDate = req.body.publishedDate;
     content.isPosted = true;
     // Convert the Model instance to a simple object using Model's 'toObject' function
     // to prevent weirdness like infinite looping...

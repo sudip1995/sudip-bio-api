@@ -30,7 +30,7 @@ var contentSchema = new mongoose.Schema({
         default: false
     },
     comments: [{ body: String, date: Date }],
-    date: { 
+    publishedDate: { 
         type: Date, 
         default: Date.now 
     },
