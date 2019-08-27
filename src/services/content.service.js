@@ -6,14 +6,14 @@ import { Content } from '../models/content.model';
 
 function getAllContentByType(req, res) {
     Content.find({contentType: req.params.contentType},function (err, content) {
-        if (err) return console.error(err);
+        if (err) res.send(null);
         res.send(content);
         });
 };
 
 function getContentById(req,res) {
     Content.findById(req.params.id, function(err, content) {
-        if(err) return console.error(err);
+        if(err) res.send(null);
         res.send(content);
     });
 };
