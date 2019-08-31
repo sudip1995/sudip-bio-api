@@ -5,7 +5,7 @@ import mongoose from 'mongoose';
 import { Content } from '../models/content.model';
 
 function getAllContentByType(req, res) {
-    Content.find({contentType: req.params.contentType},function (err, content) {
+    Content.find({contentType: req.params.contentType}).sort('-publishedDate').exec(function (err, content) {
         if (err) res.send(null);
         res.send(content);
         });
