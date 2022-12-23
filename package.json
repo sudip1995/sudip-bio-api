@@ -24,13 +24,13 @@
     "nodemailer": "^6.6.1",
     "passport": "^0.6.0",
     "passport-jwt": "^4.0.0",
-    "@babel/cli": "^7.5.5",
+    "@babel/cli": "^7.19.3",
     "@babel/preset-env": "^7.5.5",
     "dotenv": "^8.0.0",
     "@babel/core": "^7.5.5"
   },
   "devDependencies": {
     "@babel/node": "^7.5.5",
-    "nodemon": "^1.19.1"
+    "nodemon": "^2.0.20"
   }
 }
